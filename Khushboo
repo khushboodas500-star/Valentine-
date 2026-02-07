@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Message</title>
+<style>
+body {
+  background: #ffd6e8;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  background: #111;
+  color: #00ffcc;
+  padding: 20px;
+  width: 320px;
+  border-radius: 10px;
+}
+
+button {
+  background: hotpink;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.heart {
+  position: fixed;
+  color: hotpink;
+  font-size: 20px;
+  animation: float 3s linear infinite;
+}
+
+@keyframes float {
+  from { bottom: 0; opacity: 1; }
+  to { bottom: 100%; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+<div class="box" id="screen">
+> Initializing system... <br>
+> User detected: Atul Chandrakar <br><br>
+> Would you like to be my Valentine? 💖 <br><br>
+
+<button onclick="yes()">YES</button>
+<button onclick="no()">NO</button>
+</div>
+
+<script>
+function yes() {
+  document.getElementById("screen").innerHTML =
+  "> ACCESS GRANTED 💗<br><br>Valentine confirmed 😘";
+
+  setInterval(() => {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 3000);
+  }, 300);
+}
+
+function no() {
+  alert("System error 😌 Try again");
+}
+</script>
+</body>
+</html>
